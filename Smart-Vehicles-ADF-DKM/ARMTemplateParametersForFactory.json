@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Smart-Vehicles-ADF-DKM"
+		},
+		"SmartVehicles_ADLS_LS_accountKey": {
+			"value": ""
+		},
+		"S3SmartVehiclesDataLS_properties_typeProperties_accessKeyId": {
+			"value": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "SmartVehicles_KeyVault_LS",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3accesskey"
+			}
+		},
+		"SmartVehicles_ADLS_LS_properties_typeProperties_url": {
+			"value": "https://project1smartvehiclesdkm.dfs.core.windows.net/"
+		},
+		"SmartVehicles_KeyVault_LS_properties_typeProperties_baseUrl": {
+			"value": "https://smartvehicles-keyvault.vault.azure.net/"
+		}
+	}
+}
