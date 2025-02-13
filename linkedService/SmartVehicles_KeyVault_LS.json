@@ -1,0 +1,10 @@
+{
+	"name": "SmartVehicles_KeyVault_LS",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://smartvehicles-keyvault.vault.azure.net/"
+		}
+	}
+}
