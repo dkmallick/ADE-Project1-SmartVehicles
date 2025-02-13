@@ -5,14 +5,21 @@
 			"referenceName": "S3SmartVehiclesDataLS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"folderpath": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AmazonS3Location",
 				"bucketName": "project1smartvehicles-dkm",
-				"folderPath": "2025/Feb/12",
-				"fileName": "Customer.json"
+				"folderPath": {
+					"value": "@dataset().folderpath",
+					"type": "Expression"
+				}
 			}
 		},
 		"schema": {

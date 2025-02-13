@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "S3_to_ADLS_Pipeline",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copy data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,6 +20,7 @@
 						"storeSettings": {
 							"type": "AmazonS3ReadSettings",
 							"recursive": true,
+							"wildcardFileName": "*.json",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -40,13 +41,22 @@
 				"inputs": [
 					{
 						"referenceName": "S3_SmartVehicles_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"folderpath": {
+								"value": "@concat(formatDateTime(utcNow(),'yyyy'), '/', formatDateTime(utcNow(),'MM'), '/', formatDateTime(utcNow(),'dd'),'/')",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ADLS_SmartVehicles_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"folderpath": "@concat(formatDateTime(utcNow(),'yyyy'), '/', formatDateTime(utcNow(),'MM'), '/', formatDateTime(utcNow(),'dd'),'/')"
+						}
 					}
 				]
 			}
