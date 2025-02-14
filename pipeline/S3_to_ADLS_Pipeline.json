@@ -55,7 +55,10 @@
 						"referenceName": "ADLS_SmartVehicles_DS",
 						"type": "DatasetReference",
 						"parameters": {
-							"folderpath": "@concat(formatDateTime(utcNow(),'yyyy'), '/', formatDateTime(utcNow(),'MM'), '/', formatDateTime(utcNow(),'dd'),'/')"
+							"folderpath": {
+								"value": "@concat('landing/',formatDateTime(utcNow(),'yyyy'), '/', formatDateTime(utcNow(),'MM'), '/', formatDateTime(utcNow(),'dd'),'/')",
+								"type": "Expression"
+							}
 						}
 					}
 				]
